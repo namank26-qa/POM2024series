@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.qa.opencart.constants.AppConstants;
 import com.qa.opencart.utility.ElementUtil;
 
 public class LoginPage {
@@ -22,16 +23,17 @@ public class LoginPage {
 	private By Password = By.id("input-password");
 	private By ForgotPassword = By.linkText("Forgotten Password");
 	private By LoginButton = By.xpath("//input[@value='Login']");
+	private By RegisterAccountContinueButton  = By.linkText("Continue");
 	
 	//Actions
 	public String getPageTitle() {
-		 String pageTitle = el.returnPageTitle("Account Login", 10);
+		 String pageTitle = el.returnPageTitle(AppConstants.LOGIN_PAGE_TITLE, 10);
 		 System.out.println("Login Page Title ===>" + pageTitle);
 		return pageTitle;
 	}
 	
 	public String getLoginPageURL() {
-		 String pageURL = el.returnPageFractionURLcontains("route=account/login", 10);
+		 String pageURL = el.returnPageFractionURLcontains(AppConstants.LOGIN_PAGE_FRACTION_URL, 10);
 		 System.out.println("Login Page URL ===>" + pageURL);
 		 return pageURL;
 	}
@@ -46,6 +48,11 @@ public class LoginPage {
 		el.performClick(LoginButton);
 		
 		return new HomePage(driver);
+	}
+	
+	public RegistrationPage continuetoRegistration() {
+		el.waitforVisbilityofElement(RegisterAccountContinueButton, AppConstants.DEFAULT_TIME_OUT).click();
+		return new RegistrationPage(driver);
 	}
 	
 
