@@ -14,6 +14,12 @@ public class AppConstants {
 	public static String LOGIN_PAGE_TITLE = "Account Login";
 	public static String LOGIN_PAGE_FRACTION_URL = "route=account/login";
 	
+	public static String REGISTRATION_PAGE_TITLE = "Register Account";
+	public static String REGISTRATION_PAGE_FRACTION_URL = "route=account/register";
+	
+	public static String ACCOUNT_CONFIRMATION_PAGE_TITLE = "Your Account Has Been Created!";
+	public static String ACCOUNT_CONFIRMATION_PAGE_FRACTION_URL = "route=account/success";
+	
 	public static String HOME_PAGE_TITLE = "My Account";
 	public static String HOME_PAGE_FRACTION_URL = "route=account/account";
 	
