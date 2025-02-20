@@ -32,6 +32,7 @@
 	-->
 	 
 	<test name="Product Info Page Test">
+		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class name="com.qa.opencart.tests.ProductInfoTest" />
 		</classes>
