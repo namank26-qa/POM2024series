@@ -1,7 +1,6 @@
 package com.qa.opencart.utility;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Sheet;

@@ -1,5 +1,6 @@
 package com.qa.opencart.pages;
 
+import org.apache.commons.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,6 +30,7 @@ public class LoginPage {
 	public String getPageTitle() {
 		 String pageTitle = el.returnPageTitle(AppConstants.LOGIN_PAGE_TITLE, 10);
 		 System.out.println("Login Page Title ===>" + pageTitle);
+		 
 		return pageTitle;
 	}
 	

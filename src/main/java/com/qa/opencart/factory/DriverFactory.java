@@ -2,6 +2,7 @@ package com.qa.opencart.factory;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
@@ -84,7 +85,7 @@ public class DriverFactory {
 	public Properties initProp() {
 
 		prop = new Properties();
-		FileInputStream fis = null;
+		InputStream fis = null;
 		String envName = System.getProperty("env");
 		System.out.println("test suite running environment: " + envName);
 
