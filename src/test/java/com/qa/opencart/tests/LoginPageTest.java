@@ -19,6 +19,7 @@ public class LoginPageTest extends BaseTest {
 
 	@Test
 	public void LoginPageURLTest() {
+		ChainTestListener.log("verifying Login page URL");
 		String URL = lp.getLoginPageURL();
 		// Assert.assertEquals(URL, "route=account/login", "===>URL Mismatch");
 		Assert.assertTrue(URL.contains(AppConstants.LOGIN_PAGE_FRACTION_URL), AppError.URL_NOT_FOUND_ERROR);
@@ -26,6 +27,7 @@ public class LoginPageTest extends BaseTest {
 
 	@Test
 	public void ForgotPasswordLinkExistTest() {
+		ChainTestListener.log("verifying whether forgot password link exist or not");
 		boolean isLinkExist = lp.forgotPWDLinkcheck();
 		Assert.assertTrue(isLinkExist, "===>Forgot Password Link is missing.");
 
@@ -49,7 +51,7 @@ public class LoginPageTest extends BaseTest {
 		};
 	}
 
-	@Test(dataProvider = "footerLinkTestData")
+	@Test(dataProvider = "footerLinkTestData", description = "validating the footers")
 	public void footerLinkTest(String footerLink) {
 		Assert.assertTrue(csp.getFooterLink(footerLink));
 	}
