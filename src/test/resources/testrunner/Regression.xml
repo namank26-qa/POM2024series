@@ -38,13 +38,13 @@
 	</test>
 	
 	 
-	<test name="Product Info Page Test">
+	<test name="Product Info Page Test_chrome">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class name="com.qa.opencart.tests.ProductInfoTest" />
 		</classes>
 	</test>
-	<test name="Product Info Page Test">
+	<test name="Product Info Page Test_firefox">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
 			<class name="com.qa.opencart.tests.ProductInfoTest" />
