@@ -45,7 +45,7 @@ public class LoginPage {
 	}
 	
 	public HomePage performLogin(String username, String password) {
-		el.waitforVisbilityofElement(EmailAddress, 10).sendKeys(username);
+		el.waitforVisbilityofElement(EmailAddress, AppConstants.DEFAULT_TIME_OUT).sendKeys(username);
 		el.enterText(Password, password);
 		el.performClick(LoginButton);
 		
