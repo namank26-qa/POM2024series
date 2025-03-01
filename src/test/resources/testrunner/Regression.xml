@@ -11,11 +11,12 @@
 	</listeners>
 	 
 	<test name="Login Page Test_firefox">
-		<parameter name="browser" value="firefox"></parameter>
+		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageTest" />
 		</classes>
 	</test>
+	
 	<test name="Login Page Test_chrome">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
@@ -23,13 +24,14 @@
 		</classes>
 	</test>
 	
-	
+	 
 	<test name="Home Page Test_firefox">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
 			<class name="com.qa.opencart.tests.HomePageTest" />
 		</classes>
 	</test>
+	
 	<test name="Home Page Test_Chrome">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
@@ -50,6 +52,7 @@
 			<class name="com.qa.opencart.tests.ProductInfoTest" />
 		</classes>
 	</test>
+	
 	
 	<!-- 
 	<test name="Shopping Cart Page Test">

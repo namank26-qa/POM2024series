@@ -3,6 +3,8 @@ package com.qa.opencart.factory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
@@ -16,9 +18,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.qa.opencart.constants.AppConstants;
 import com.qa.opencart.exceptions.FrameworkExceptions;
+
+import io.qameta.allure.Step;
 
 public class DriverFactory {
 	WebDriver driver;
@@ -28,24 +33,35 @@ public class DriverFactory {
 	public static ThreadLocal<WebDriver> tld = new ThreadLocal<WebDriver>();
 	private static final Logger log = LogManager.getLogger(DriverFactory.class);
 
+	@Step("initating the driver using properties:{0}")
 	public WebDriver initDriver(Properties prop) {
 		String browserName = prop.getProperty("browser");
 		String URL = prop.getProperty("url");
-		//System.out.println("Browser name is: " + prop.getProperty("browser"));
+		// System.out.println("Browser name is: " + prop.getProperty("browser"));
 		log.info("Browser name is: " + prop.getProperty("browser"));
 		highlight = prop.getProperty("highlight");
 		op = new OptionsManager(prop);
+		boolean remoteExecutionflag = Boolean.parseBoolean(prop.getProperty("remote"));
 
 		switch (browserName.trim().toLowerCase()) {
 		case "chrome": {
-			tld.set(new ChromeDriver(op.getChromeOptions()));
-//			driver = new ChromeDriver(op.getChromeOptions());
+			if (remoteExecutionflag) {
+				initRemoteDriver("chrome");
+			} else {
+
+				System.out.println("COP catch1");
+				tld.set(new ChromeDriver(op.getChromeOptions()));
+				System.out.println("COP catch2");
+			}
 			break;
 		}
 		case "firefox": {
-			tld.set(new FirefoxDriver(op.getFirefoxOptions()));
+			if (remoteExecutionflag) {
+				initRemoteDriver("firefox");
+			} else {
+				tld.set(new FirefoxDriver(op.getFirefoxOptions()));
+			}
 
-//			driver = new FirefoxDriver(op.getFirefoxOptions());
 			break;
 		}
 		case "edge": {
@@ -53,7 +69,7 @@ public class DriverFactory {
 			break;
 		}
 		default:
-			//System.out.println("Please pass the valid browser name..." + browserName);
+			// System.out.println("Please pass the valid browser name..." + browserName);
 			log.error("Please pass the valid browser name..." + browserName);
 			throw new FrameworkExceptions("===Invalid Browser Name===");
 		}
@@ -66,6 +82,31 @@ public class DriverFactory {
 //		driver.get(URL);
 
 		return getDriver();
+
+	}
+/**
+ * Method to Initiate the remote driver with Selenium grid
+ * @param browserName
+ */
+	private void initRemoteDriver(String browserName) {
+		log.info("Browser running in the grid: " + browserName);
+		try {
+			switch (browserName.trim().toLowerCase()) {
+			case "chrome":
+				tld.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), op.getChromeOptions()));
+				break;
+			case "firefox":
+				tld.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), op.getFirefoxOptions()));
+				break;
+
+			default:
+				log.error(browserName + "is not supported in grid.");
+				break;
+			}
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+
+		}
 
 	}
 
@@ -129,10 +170,10 @@ public class DriverFactory {
 
 		return prop;
 	}
-	
+
 	public String pathofScreenshot() {
-		File srcfile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
-		String path = System.getProperty("user.dir")+"/screenshot/"+"_"+System.currentTimeMillis()+".png";
+		File srcfile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+		String path = System.getProperty("user.dir") + "/screenshot/" + "_" + System.currentTimeMillis() + ".png";
 		File destFile = new File(path);
 		try {
 			FileHandler.copy(srcfile, destFile);
@@ -142,9 +183,9 @@ public class DriverFactory {
 		}
 		return path;
 	}
-	
+
 	public File getScreenshot() {
-		return ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
+		return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 	}
 
 }
