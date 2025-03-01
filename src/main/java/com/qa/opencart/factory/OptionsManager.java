@@ -51,6 +51,7 @@ public class OptionsManager {
 			Map<String, Object> selenoidOptionsmap = new HashMap<String, Object>();
 			selenoidOptionsmap.put("screenResolution", "1280x1024x24");
 			selenoidOptionsmap.put("enableVNC", true);
+			selenoidOptionsmap.put("testname", prop.get("testname"));
 
 			cop.setCapability("selenoid:options", selenoidOptionsmap);
 
@@ -81,6 +82,7 @@ public class OptionsManager {
 			Map<String, Object> selenoidOptionsmap = new HashMap<String, Object>();
 			selenoidOptionsmap.put("screenResolution", "1280x1024x24");
 			selenoidOptionsmap.put("enableVNC", true);
+			selenoidOptionsmap.put("testname", prop.get("testname"));
 
 			fop.setCapability("selenoid:options", selenoidOptionsmap);
 		}
