@@ -63,7 +63,7 @@ public class OptionsManager {
 			fop.addArguments("--incognito");
 		}
 		if (remoteExecutionflag) {
-			cop.setCapability("browserName", "firefox");
+			fop.setCapability("browserName", "firefox");
 		}
 		return fop;
 	}
