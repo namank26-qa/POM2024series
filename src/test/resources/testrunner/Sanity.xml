@@ -18,6 +18,7 @@
 			<class name="com.qa.opencart.tests.LoginPageTest" />
 		</classes>
 	</test>
+	<!-- 
 	<test name="Login Page Test_chrome_124.0">
 		<parameter name="browser" value="chrome"></parameter>
 		<parameter name="browserversion" value="124.0"></parameter>
@@ -26,6 +27,7 @@
 			<class name="com.qa.opencart.tests.LoginPageTest" />
 		</classes>
 	</test>
+	-->
 	
 
 </suite>	
