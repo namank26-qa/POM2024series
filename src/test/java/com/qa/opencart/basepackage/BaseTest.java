@@ -36,7 +36,7 @@ public class BaseTest {
 	protected ShoppingCartPage scp;
 	
 
-	@Parameters({"browser","browserversion"}) //browser value coming from xml file
+	@Parameters({"browser","browserversion","testname"}) //browser value coming from xml file
 	@BeforeTest
 	public void setup(String browserName, String browserVersion) { //parameter value
 		df = new DriverFactory();
