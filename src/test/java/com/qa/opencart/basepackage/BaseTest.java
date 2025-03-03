@@ -38,13 +38,14 @@ public class BaseTest {
 
 	@Parameters({"browser","browserversion","testname"}) //browser value coming from xml file
 	@BeforeTest
-	public void setup(String browserName, String browserVersion) { //parameter value
+	public void setup(String browserName, String browserVersion, String testname) { //parameter value
 		df = new DriverFactory();
 		prop = df.initProp(); //properties coming from config.properties file
 		
 		if(browserName != null) { 
 			prop.setProperty("browser", browserName); //set browser property from xml file
 			prop.setProperty("browserversion", browserVersion);
+			prop.setProperty("testname", testname);
 		}
 		driver = df.initDriver(prop);
 
