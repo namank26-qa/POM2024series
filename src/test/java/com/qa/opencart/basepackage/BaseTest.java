@@ -36,7 +36,8 @@ public class BaseTest {
 	protected ShoppingCartPage scp;
 	
 
-	@Parameters({"browser","browserversion","testname"}) //browser value coming from xml file
+	//@Parameters({"browser","browserversion","testname"}) //browser value coming from xml file
+	@Parameters({"browser"})
 	@BeforeTest
 	public void setup(String browserName, String browserVersion, String testname) { //parameter value
 		df = new DriverFactory();
@@ -44,8 +45,8 @@ public class BaseTest {
 		
 		if(browserName != null) { 
 			prop.setProperty("browser", browserName); //set browser property from xml file
-			prop.setProperty("browserversion", browserVersion);
-			prop.setProperty("testname", testname);
+			//prop.setProperty("browserversion", browserVersion);
+			//prop.setProperty("testname", testname);
 		}
 		driver = df.initDriver(prop);
 
