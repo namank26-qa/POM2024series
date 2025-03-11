@@ -12,8 +12,8 @@
 	 
 	<test name="Login Page Test_firefox_124.0">
 		<parameter name="browser" value="firefox"></parameter>
-		<!--<parameter name="browserversion" value="124.0"></parameter>
-		<parameter name="testname" value="Login Page Test"></parameter> -->
+		<parameter name="browserversion" value="124.0"></parameter>
+		<parameter name="testname" value="Login Page Test"></parameter> 
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageTest" />
 		</classes>
@@ -21,8 +21,8 @@
 	
 	<test name="Home Page Test_firefox_125.0">
 		<parameter name="browser" value="firefox"></parameter>
-		<!-- <parameter name="browserversion" value="125.0"></parameter>
-		<parameter name="testname" value="Home Page Test"></parameter> -->
+		 <parameter name="browserversion" value="125.0"></parameter>
+		<parameter name="testname" value="Home Page Test"></parameter> 
 		<classes>
 			<class name="com.qa.opencart.tests.HomePageTest" />
 		</classes>
@@ -31,8 +31,8 @@
 	
 	<test name="Login Page Test_chrome_124.0">
 		<parameter name="browser" value="chrome"></parameter>
-		<!-- <parameter name="browserversion" value="124.0"></parameter>
-		<parameter name="testname" value="Login Page Test"></parameter> -->
+		 <parameter name="browserversion" value="124.0"></parameter>
+		<parameter name="testname" value="Login Page Test"></parameter> 
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageTest" />
 		</classes>
@@ -40,8 +40,8 @@
 	
 	<test name="Home Page Test_Chrome_123.0">
 		<parameter name="browser" value="chrome"></parameter>
-		<!-- <parameter name="browserversion" value="123.0"></parameter>
-		<parameter name="testname" value="Home Page Test"></parameter> -->
+		 <parameter name="browserversion" value="123.0"></parameter>
+		<parameter name="testname" value="Home Page Test"></parameter> 
 		<classes>
 			<class name="com.qa.opencart.tests.HomePageTest" />
 		</classes>

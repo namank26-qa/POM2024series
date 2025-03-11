@@ -44,16 +44,16 @@ public class OptionsManager {
 
 		if (remoteExecutionflag) {
 			cop.setCapability("browserName", "chrome");
-			//cop.setBrowserVersion(prop.getProperty("browserversion").trim()); // setting browser version
+			cop.setBrowserVersion(prop.getProperty("browserversion").trim()); // setting browser version
 
 			// create hashmap to store all the capabilities and pass it as object in set
 			// capability method
-//			Map<String, Object> selenoidOptionsmap = new HashMap<String, Object>();
-//			selenoidOptionsmap.put("screenResolution", "1280x1024x24");
-//			selenoidOptionsmap.put("enableVNC", true);
-//			selenoidOptionsmap.put("testname", prop.get("testname"));
-//
-//			cop.setCapability("selenoid:options", selenoidOptionsmap);
+			Map<String, Object> selenoidOptionsmap = new HashMap<String, Object>();
+			selenoidOptionsmap.put("screenResolution", "1280x1024x24");
+			selenoidOptionsmap.put("enableVNC", true);
+			selenoidOptionsmap.put("testname", prop.get("testname"));
+
+			cop.setCapability("selenoid:options", selenoidOptionsmap);
 
 		}
 		return cop;
@@ -75,16 +75,16 @@ public class OptionsManager {
 		}
 		if (remoteExecutionflag) {
 			fop.setCapability("browserName", "firefox");
-			//fop.setBrowserVersion(prop.getProperty("browserversion").trim()); // setting browser version
+			fop.setBrowserVersion(prop.getProperty("browserversion").trim()); // setting browser version
 
 			// create hashmap to store all the capabilities and pass it as object in set
 			// capability method
-//			Map<String, Object> selenoidOptionsmap = new HashMap<String, Object>();
-//			selenoidOptionsmap.put("screenResolution", "1280x1024x24");
-//			selenoidOptionsmap.put("enableVNC", true);
-//			selenoidOptionsmap.put("testname", prop.get("testname"));
-//
-//			fop.setCapability("selenoid:options", selenoidOptionsmap);
+			Map<String, Object> selenoidOptionsmap = new HashMap<String, Object>();
+			selenoidOptionsmap.put("screenResolution", "1280x1024x24");
+			selenoidOptionsmap.put("enableVNC", true);
+			selenoidOptionsmap.put("testname", prop.get("testname"));
+
+			fop.setCapability("selenoid:options", selenoidOptionsmap);
 		}
 		return fop;
 	}
